@@ -13,10 +13,8 @@ if(new_node){
   new_node->nextPtr=NULL;
   /*Finish enqueue */
   if(q->size==0)q->headPtr=new_node;
-  else{
-  q->tailPtr->nextPtr=new_node;
+  else q->tailPtr->nextPtr=new_node;
   q->tailPtr=new_node;
-  }
   q->size++;
 
  }
@@ -29,7 +27,7 @@ int dequeue_struct(Queue *q){
    int value= t->data;
        /*Finish dequeue */
        q->headPtr=t->nextPtr;
-    if(q->size==1)q->tailPtr=q->headPtr;
+    if(q->size==1)q->tailPtr=t;
       q->size--;
       free(t);
    return value;
